@@ -3,179 +3,768 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>MCBE TIERS</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#050708;
-    color:#fff;
-    min-height:100vh;
+body {
+    font-family: Arial, sans-serif;
+    background: #050708;
+    color: white;
+    min-height: 100vh;
 }
 
-/* BACKGROUND */
-
-body:before{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-2;
-    background:
-    radial-gradient(circle at 10% 10%,rgba(0,255,157,.12),transparent 30%),
-    radial-gradient(circle at 90% 80%,rgba(0,190,255,.10),transparent 30%),
-    linear-gradient(135deg,#030506,#08100e,#030608);
+header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6%;
+    background: #090d10;
+    border-bottom: 1px solid #1b2429;
 }
 
-body:after{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-1;
-    opacity:.08;
-    background-image:
-    linear-gradient(rgba(0,255,157,.4) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(0,255,157,.4) 1px,transparent 1px);
-    background-size:55px 55px;
+.logo {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 2px;
 }
 
-/* HEADER */
-
-header{
-    position:sticky;
-    top:0;
-    z-index:50;
-    height:70px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 6%;
-    background:rgba(5,8,10,.88);
-    border-bottom:1px solid rgba(255,255,255,.07);
-    backdrop-filter:blur(15px);
+.logo span {
+    color: #00ff9d;
 }
 
-.logo{
-    font-size:22px;
-    font-weight:900;
-    letter-spacing:2px;
+nav a {
+    color: #89939e;
+    text-decoration: none;
+    margin-left: 22px;
+    font-size: 14px;
 }
 
-.logo span{
-    color:#00ff9d;
-    text-shadow:0 0 18px rgba(0,255,157,.4);
+.container {
+    width: 94%;
+    max-width: 1050px;
+    margin: auto;
+    padding: 45px 0;
 }
 
-nav{
-    display:flex;
-    gap:25px;
+.hero {
+    text-align: center;
+    margin-bottom: 35px;
 }
 
-nav a{
-    color:#7f8999;
-    text-decoration:none;
-    font-size:14px;
+.hero h1 {
+    font-size: 60px;
+    color: #00ff9d;
+    letter-spacing: 4px;
 }
 
-nav a:hover{
-    color:#00ff9d;
+.hero p {
+    color: #77818d;
+    margin-top: 10px;
 }
 
-/* MAIN */
-
-.container{
-    width:min(1050px,94%);
-    margin:auto;
-    padding:45px 0 70px;
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
 }
 
-/* HERO */
-
-.hero{
-    text-align:center;
-    padding:20px 0 35px;
+.stat {
+    background: #0d1317;
+    border: 1px solid #1c272d;
+    border-radius: 16px;
+    padding: 20px 10px;
+    text-align: center;
 }
 
-.hero h1{
-    font-size:clamp(45px,10vw,82px);
-    letter-spacing:5px;
-    font-weight:1000;
-    color:#00ffad;
-    text-shadow:0 0 30px rgba(0,255,173,.2);
+.stat-number {
+    color: #00ff9d;
+    font-size: 25px;
+    font-weight: bold;
 }
 
-.hero p{
-    margin-top:10px;
-    color:#737e91;
+.stat-label {
+    color: #68737f;
+    font-size: 10px;
+    margin-top: 7px;
+    letter-spacing: 1px;
 }
 
-/* STATS */
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:14px;
-    margin-bottom:20px;
+.tabs {
+    display: flex;
+    gap: 6px;
+    background: #0b1014;
+    padding: 6px;
+    border-radius: 15px;
+    margin-bottom: 15px;
 }
 
-.stat{
-    background:rgba(14,19,25,.92);
-    border:1px solid rgba(255,255,255,.07);
-    border-radius:18px;
-    padding:22px 10px;
-    text-align:center;
+.tab {
+    flex: 1;
+    border: none;
+    padding: 13px 5px;
+    border-radius: 10px;
+    background: transparent;
+    color: #77818d;
+    cursor: pointer;
 }
 
-.stat-number{
-    color:#00ff9d;
-    font-size:27px;
-    font-weight:900;
+.tab.active {
+    background: #10251e;
+    color: #00ff9d;
 }
 
-.stat-label{
-    margin-top:6px;
-    color:#626d7e;
-    font-size:10px;
-    letter-spacing:2px;
+.search,
+select {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 15px;
+    border-radius: 14px;
+    border: 1px solid #1c272d;
+    background: #0b1014;
+    color: white;
+    outline: none;
 }
 
-/* TABS */
-
-.tabs{
-    display:flex;
-    gap:6px;
-    padding:6px;
-    background:#0c1117;
-    border:1px solid rgba(255,255,255,.07);
-    border-radius:16px;
-    margin-bottom:15px;
+select option {
+    background: #0b1014;
 }
 
-.tab{
-    flex:1;
-    border:0;
-    padding:13px 8px;
-    border-radius:11px;
-    background:transparent;
-    color:#6c7789;
-    cursor:pointer;
+.section {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
 }
 
-.tab.active{
-    background:rgba(0,255,157,.1);
-    color:#00ff9d;
+.section-title {
+    color: #89939e;
+    font-size: 11px;
+    letter-spacing: 2px;
 }
 
-/* SEARCH */
+.count {
+    color: #66717e;
+    font-size: 11px;
+}
 
-.search{
-    width:100%;
-    padding:17px 19px;
-    margin-bottom:16px;
-    border-radius:16
+.players {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 17px;
+    background: #0d1317;
+    border: 1px solid #1c272d;
+    border-radius: 17px;
+    cursor: pointer;
+}
+
+.player:hover {
+    border-color: #00a86b;
+}
+
+.rank {
+    width: 40px;
+    text-align: center;
+    color: #77818d;
+    font-weight: bold;
+}
+
+.info {
+    flex: 1;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.meta {
+    color: #68737f;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.result {
+    text-align: right;
+}
+
+.tier {
+    color: #00ff9d;
+    background: #10251e;
+    padding: 7px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.points {
+    color: #74808d;
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+.empty {
+    display: none;
+    text-align: center;
+    padding: 35px;
+    color: #68737f;
+    background: #0d1317;
+    border-radius: 15px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #4f5964;
+    border-top: 1px solid #151d22;
+    font-size: 11px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.75);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-box {
+    width: 100%;
+    max-width: 450px;
+    background: #0d1317;
+    border: 1px solid #00a86b;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+.close {
+    float: right;
+    background: none;
+    border: none;
+    color: #89939e;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.modal-name {
+    font-size: 27px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.profile-row {
+    padding: 14px 0;
+    border-bottom: 1px solid #1c272d;
+}
+
+.profile-label {
+    color: #68737f;
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+
+.profile-value {
+    font-weight: bold;
+}
+
+@media (max-width: 700px) {
+
+    nav {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .player {
+        padding: 14px 10px;
+        gap: 9px;
+    }
+
+    .rank {
+        width: 28px;
+    }
+
+    .name {
+        font-size: 15px;
+    }
+
+    .tier {
+        font-size: 10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <span>MCBE</span> TIERS
+    </div>
+
+    <nav>
+        <a href="#">Rankings</a>
+        <a href="#">Players</a>
+        <a href="#">Tests</a>
+    </nav>
+</header>
+
+<main class="container">
+
+    <section class="hero">
+        <h1>MCBE TIERS</h1>
+        <p>Competitive Minecraft Bedrock Rankings</p>
+    </section>
+
+    <section class="stats">
+
+        <div class="stat">
+            <div class="stat-number" id="totalPlayers">0</div>
+            <div class="stat-label">PLAYERS</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number" id="totalPoints">0</div>
+            <div class="stat-label">TOTAL POINTS</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number" id="averagePoints">0</div>
+            <div class="stat-label">AVG POINTS</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-number" id="topPoints">0</div>
+            <div class="stat-label">TOP POINTS</div>
+        </div>
+
+    </section>
+
+    <div class="tabs">
+
+        <button class="tab active" onclick="setPlatform('ALL', this)">
+            Overall
+        </button>
+
+        <button class="tab" onclick="setPlatform('Mobile', this)">
+            Mobile
+        </button>
+
+        <button class="tab" onclick="setPlatform('PC', this)">
+            PC
+        </button>
+
+        <button class="tab" onclick="setPlatform('Console', this)">
+            Console
+        </button>
+
+    </div>
+
+    <input
+        type="text"
+        id="search"
+        class="search"
+        placeholder="Search player IGN..."
+        oninput="renderPlayers()"
+    >
+
+    <select id="gamemode" onchange="renderPlayers()">
+
+        <option value="ALL">Select Gamemode</option>
+
+        <option value="CRYSTAL PVP">CRYSTAL PVP</option>
+
+        <option value="MACE">MACE</option>
+
+        <option value="MIDFIGHT/SWORD">MIDFIGHT/SWORD</option>
+
+        <option value="SKYWARS">SKYWARS</option>
+
+        <option value="BUILD UHC">BUILD UHC</option>
+
+        <option value="NETH-POT">NETH-POT</option>
+
+    </select>
+
+    <div class="section">
+
+        <div class="section-title">
+            PLAYER RANKINGS
+        </div>
+
+        <div class="count" id="count">
+            0 PLAYERS
+        </div>
+
+    </div>
+
+    <div class="players" id="players"></div>
+
+    <div class="empty" id="empty">
+        No players found.
+    </div>
+
+</main>
+
+<footer>
+    MCBE TIERS • Competitive Bedrock Rankings
+</footer>
+
+
+<div class="modal" id="modal">
+
+    <div class="modal-box">
+
+        <button class="close" onclick="closeProfile()">×</button>
+
+        <div class="modal-name" id="modalName"></div>
+
+        <div class="profile-row">
+            <div class="profile-label">GAMEMODE</div>
+            <div class="profile-value" id="modalGamemode"></div>
+        </div>
+
+        <div class="profile-row">
+            <div class="profile-label">TIER</div>
+            <div class="profile-value" id="modalTier"></div>
+        </div>
+
+        <div class="profile-row">
+            <div class="profile-label">POINTS</div>
+            <div class="profile-value" id="modalPoints"></div>
+        </div>
+
+        <div class="profile-row">
+            <div class="profile-label">PLATFORM</div>
+            <div class="profile-value" id="modalPlatform"></div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+const tiers = {
+
+    HT1: { name: "High S Tier", points: 1000 },
+    MT1: { name: "Mid S Tier", points: 950 },
+    LT1: { name: "Low S Tier", points: 900 },
+
+    HT2: { name: "High A Tier", points: 850 },
+    MT2: { name: "Mid A Tier", points: 800 },
+    LT2: { name: "Low A Tier", points: 750 },
+
+    HT3: { name: "High B Tier", points: 700 },
+    MT3: { name: "Mid B Tier", points: 650 },
+    LT3: { name: "Low B Tier", points: 600 },
+
+    HT4: { name: "High C Tier", points: 550 },
+    MT4: { name: "Mid C Tier", points: 500 },
+    LT4: { name: "Low C Tier", points: 450 },
+
+    HT5: { name: "High D Tier", points: 400 },
+    MT5: { name: "Mid D Tier", points: 350 },
+    LT5: { name: "Low D Tier", points: 300 }
+
+};
+
+
+/* DEMO PLAYERS */
+
+const players = [
+
+    {
+        name: "Efficient",
+        gamemode: "SKYWARS",
+        tier: "HT1",
+        platform: "Mobile"
+    },
+
+    {
+        name: "Nanchi",
+        gamemode: "SKYWARS",
+        tier: "LT1",
+        platform: "Mobile"
+    },
+
+    {
+        name: "NOT KILLER",
+        gamemode: "MIDFIGHT/SWORD",
+        tier: "MT4",
+        platform: "Mobile"
+    },
+
+    {
+        name: "Player4",
+        gamemode: "CRYSTAL PVP",
+        tier: "HT2",
+        platform: "PC"
+    },
+
+    {
+        name: "Player5",
+        gamemode: "BUILD UHC",
+        tier: "HT3",
+        platform: "Mobile"
+    },
+
+    {
+        name: "Player6",
+        gamemode: "NETH-POT",
+        tier: "LT3",
+        platform: "Console"
+    }
+
+];
+
+
+let currentPlatform = "ALL";
+
+
+function renderPlayers() {
+
+    const searchText =
+        document.getElementById("search")
+        .value
+        .toLowerCase();
+
+    const selectedMode =
+        document.getElementById("gamemode").value;
+
+    const container =
+        document.getElementById("players");
+
+    container.innerHTML = "";
+
+    let filtered = players.filter(function(player) {
+
+        const nameMatch =
+            player.name
+            .toLowerCase()
+            .includes(searchText);
+
+        const modeMatch =
+            selectedMode === "ALL" ||
+            player.gamemode === selectedMode;
+
+        const platformMatch =
+            currentPlatform === "ALL" ||
+            player.platform === currentPlatform;
+
+        return nameMatch && modeMatch && platformMatch;
+
+    });
+
+
+    filtered.sort(function(a, b) {
+
+        return tiers[b.tier].points -
+               tiers[a.tier].points;
+
+    });
+
+
+    filtered.forEach(function(player, index) {
+
+        const card =
+            document.createElement("div");
+
+        card.className = "player";
+
+        card.innerHTML =
+
+            '<div class="rank">#' +
+            (index + 1) +
+            '</div>' +
+
+            '<div class="info">' +
+
+                '<div class="name">' +
+                player.name +
+                '</div>' +
+
+                '<div class="meta">' +
+                player.gamemode +
+                ' • ' +
+                player.platform +
+                '</div>' +
+
+            '</div>' +
+
+            '<div class="result">' +
+
+                '<div class="tier">' +
+                player.tier +
+                '</div>' +
+
+                '<div class="points">' +
+                tiers[player.tier].points +
+                ' pts' +
+                '</div>' +
+
+            '</div>';
+
+
+        card.onclick = function() {
+            openProfile(player);
+        };
+
+
+        container.appendChild(card);
+
+    });
+
+
+    document.getElementById("count")
+        .textContent =
+        filtered.length +
+        " PLAYER" +
+        (filtered.length === 1 ? "" : "S");
+
+
+    document.getElementById("empty")
+        .style.display =
+        filtered.length === 0
+        ? "block"
+        : "none";
+
+}
+
+
+function setPlatform(platform, button) {
+
+    currentPlatform = platform;
+
+    document
+        .querySelectorAll(".tab")
+        .forEach(function(tab) {
+            tab.classList.remove("active");
+        });
+
+    button.classList.add("active");
+
+    renderPlayers();
+
+}
+
+
+function openProfile(player) {
+
+    document.getElementById("modalName")
+        .textContent = player.name;
+
+    document.getElementById("modalGamemode")
+        .textContent = player.gamemode;
+
+    document.getElementById("modalTier")
+        .textContent =
+        tiers[player.tier].name +
+        " [" +
+        player.tier +
+        "]";
+
+    document.getElementById("modalPoints")
+        .textContent =
+        tiers[player.tier].points +
+        " pts";
+
+    document.getElementById("modalPlatform")
+        .textContent = player.platform;
+
+    document.getElementById("modal")
+        .classList.add("show");
+
+}
+
+
+function closeProfile() {
+
+    document.getElementById("modal")
+        .classList.remove("show");
+
+}
+
+
+function updateStats() {
+
+    const total = players.length;
+
+    let totalPoints = 0;
+
+    players.forEach(function(player) {
+
+        totalPoints +=
+            tiers[player.tier].points;
+
+    });
+
+
+    const average =
+        total === 0
+        ? 0
+        : Math.round(totalPoints / total);
+
+
+    let top = 0;
+
+    players.forEach(function(player) {
+
+        if (tiers[player.tier].points > top) {
+
+            top =
+                tiers[player.tier].points;
+
+        }
+
+    });
+
+
+    document.getElementById("totalPlayers")
+        .textContent = total;
+
+    document.getElementById("totalPoints")
+        .textContent = totalPoints;
+
+    document.getElementById("averagePoints")
+        .textContent = average;
+
+    document.getElementById("topPoints")
+        .textContent = top;
+
+}
+
+
+updateStats();
+renderPlayers();
+
+</script>
+
+</body>
+    </html>
