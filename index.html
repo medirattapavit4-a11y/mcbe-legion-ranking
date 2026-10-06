@@ -14,22 +14,21 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background: #05070c;
     color: white;
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-/* Background */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
     z-index: -2;
     background:
-        radial-gradient(circle at 20% 20%, rgba(0,255,170,.12), transparent 25%),
-        radial-gradient(circle at 80% 60%, rgba(0,200,255,.10), transparent 25%),
+        radial-gradient(circle at 15% 15%, rgba(0,255,170,.13), transparent 28%),
+        radial-gradient(circle at 85% 65%, rgba(0,200,255,.10), transparent 28%),
         linear-gradient(135deg, #020509, #07100f, #03060b);
 }
 
@@ -38,14 +37,13 @@ body::after {
     position: fixed;
     inset: 0;
     z-index: -1;
-    opacity: .25;
+    opacity: .22;
     background-image:
-        linear-gradient(rgba(0,255,170,.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,255,170,.08) 1px, transparent 1px);
+        linear-gradient(rgba(0,255,170,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,170,.07) 1px, transparent 1px);
     background-size: 45px 45px;
 }
 
-/* Header */
 .header {
     height: 75px;
     display: flex;
@@ -53,7 +51,7 @@ body::after {
     justify-content: space-between;
     padding: 0 25px;
     border-bottom: 1px solid rgba(255,255,255,.08);
-    background: rgba(3,7,12,.85);
+    background: rgba(3,7,12,.88);
     backdrop-filter: blur(12px);
 }
 
@@ -68,10 +66,10 @@ body::after {
 }
 
 .menu {
-    font-size: 28px;
+    font-size: 26px;
+    color: #8791a3;
 }
 
-/* Main */
 .container {
     width: min(1000px, 94%);
     margin: auto;
@@ -88,29 +86,28 @@ body::after {
     font-weight: 900;
     letter-spacing: 3px;
     color: #00ffb3;
-    text-shadow: 0 0 25px rgba(0,255,180,.45);
+    text-shadow: 0 0 28px rgba(0,255,180,.42);
 }
 
 .hero p {
     margin-top: 10px;
     color: #8d9aaa;
-    font-size: 17px;
+    font-size: 16px;
 }
 
-/* Stats */
 .stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .stat {
-    padding: 25px 15px;
+    padding: 23px 15px;
     text-align: center;
     border: 1px solid rgba(0,255,180,.12);
-    border-radius: 22px;
-    background: rgba(17,20,32,.8);
+    border-radius: 20px;
+    background: rgba(17,20,32,.82);
     box-shadow: 0 10px 35px rgba(0,0,0,.25);
 }
 
@@ -121,96 +118,82 @@ body::after {
 }
 
 .stat-name {
-    margin-top: 8px;
-    color: #596276;
-    font-size: 12px;
+    margin-top: 7px;
+    color: #687286;
+    font-size: 11px;
     letter-spacing: 2px;
 }
 
-/* Device tabs */
 .tabs {
     display: flex;
     gap: 8px;
     padding: 8px;
     background: rgba(17,20,32,.9);
     border: 1px solid rgba(255,255,255,.08);
-    border-radius: 22px;
-    margin-bottom: 20px;
+    border-radius: 20px;
+    margin-bottom: 18px;
 }
 
 .tab {
     flex: 1;
     border: none;
-    padding: 15px 8px;
-    border-radius: 16px;
+    padding: 14px 8px;
+    border-radius: 14px;
     background: transparent;
     color: #697287;
     font-size: 14px;
-    cursor: pointer;
 }
 
 .tab.active {
     background: rgba(0,255,170,.12);
     color: #00ff9d;
-    box-shadow: 0 0 20px rgba(0,255,170,.08);
 }
 
-/* Search */
 .search {
     width: 100%;
-    padding: 20px;
-    border-radius: 20px;
+    padding: 18px;
+    border-radius: 17px;
     border: 1px solid rgba(255,255,255,.08);
     outline: none;
-    background: rgba(14,17,27,.9);
+    background: rgba(14,17,27,.92);
     color: white;
-    font-size: 17px;
-    margin-bottom: 20px;
+    font-size: 16px;
+    margin-bottom: 12px;
 }
 
 .search:focus {
-    border-color: #00ff9d;
+    border-color: rgba(0,255,170,.5);
 }
 
-/* Gamemodes */
-.gamemodes {
+.filter-row {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 18px;
-    border-radius: 22px;
-    background: rgba(15,18,29,.9);
-    border: 1px solid rgba(255,255,255,.07);
+    gap: 12px;
     margin-bottom: 25px;
 }
 
-.mode {
+.filter {
     flex: 1;
-    min-width: 70px;
-    padding: 12px;
-    text-align: center;
-    border-radius: 14px;
-    background: rgba(255,255,255,.03);
-    cursor: pointer;
-    font-size: 25px;
-    transition: .2s;
+    padding: 16px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(14,17,27,.95);
+    color: #cbd2df;
+    font-size: 15px;
+    outline: none;
 }
 
-.mode:hover,
-.mode.active {
-    background: rgba(0,255,170,.12);
-    transform: translateY(-2px);
+.filter:focus {
+    border-color: rgba(0,255,170,.45);
 }
 
-/* Rankings */
 .ranking {
     display: flex;
     align-items: center;
-    gap: 18px;
-    padding: 20px;
-    margin-bottom: 12px;
-    border-radius: 22px;
-    background: rgba(18,20,31,.9);
+    gap: 17px;
+    padding: 19px;
+    margin-bottom: 11px;
+    border-radius: 20px;
+    background: rgba(18,20,31,.92);
     border: 1px solid rgba(255,255,255,.07);
     transition: .2s;
 }
@@ -221,10 +204,11 @@ body::after {
 }
 
 .position {
-    width: 45px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #8b94a6;
+    width: 42px;
+    font-size: 19px;
+    font-weight: 900;
+    color: #7f899b;
+    text-align: center;
 }
 
 .player {
@@ -232,33 +216,41 @@ body::after {
 }
 
 .player-name {
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 800;
 }
 
 .player-info {
     margin-top: 5px;
-    color: #697287;
-    font-size: 14px;
+    color: #687286;
+    font-size: 13px;
 }
 
 .tier {
-    padding: 10px 15px;
-    border-radius: 12px;
-    background: rgba(255,255,255,.06);
-    font-weight: 900;
+    padding: 9px 13px;
+    border-radius: 10px;
+    background: rgba(0,255,170,.08);
     color: #00ff9d;
+    border: 1px solid rgba(0,255,170,.12);
+    font-weight: 900;
+    font-size: 13px;
 }
 
 .points {
-    color: #9ca4b5;
-    font-size: 14px;
-    margin-top: 6px;
+    color: #8e98aa;
+    font-size: 12px;
+    margin-top: 5px;
     text-align: right;
 }
 
-/* Mobile */
-@media(max-width: 650px) {
+.section-title {
+    color: #8b95a8;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+@media(max-width:650px) {
 
     .stats {
         grid-template-columns: repeat(2, 1fr);
@@ -273,20 +265,25 @@ body::after {
     }
 
     .ranking {
-        gap: 10px;
+        gap: 9px;
+        padding: 15px;
     }
 
     .player-name {
-        font-size: 17px;
+        font-size: 16px;
     }
 
     .position {
-        width: 30px;
+        width: 28px;
     }
 
     .tier {
-        padding: 8px 10px;
-        font-size: 13px;
+        padding: 7px 9px;
+        font-size: 12px;
+    }
+
+    .filter-row {
+        flex-direction: column;
     }
 
     .tabs {
@@ -357,21 +354,29 @@ body::after {
         placeholder="Search player IGN..."
     >
 
-    <section class="gamemodes">
+    <div class="filter-row">
 
-        <div class="mode active">🌐</div>
-        <div class="mode">🟢</div>
-        <div class="mode">🧪</div>
-        <div class="mode">👾</div>
-        <div class="mode">🔨</div>
-        <div class="mode">🍊</div>
-        <div class="mode">⚔️</div>
-        <div class="mode">🏹</div>
-        <div class="mode">🪄</div>
-        <div class="mode">💜</div>
-        <div class="mode">❤️</div>
+        <select class="filter" id="gamemode">
+            <option value="all">Select Gamemode</option>
+            <option value="builduhc">BuildUHC</option>
+            <option value="midfight">MidFight/SWORD</option>
+            <option value="skywars">SkyWars</option>
+            <option value="crystal">Crystal PvP</option>
+        </select>
+        <select class="filter" id="region">
+            <option value="all">Select Region</option>
+            <option value="AS">Asia</option>
+            <option value="EU">Europe</option>
+            <option value="NA">North America</option>
+            <option value="SA">South America</option>
+            <option value="OC">Oceania</option>
+        </select>
 
-    </section>
+    </div>
+
+    <div class="section-title">
+        PLAYER RANKINGS
+    </div>
 
     <section id="rankings">
 
@@ -422,12 +427,17 @@ body::after {
 </main>
 
 <script>
+
 const search = document.getElementById("search");
+const gamemode = document.getElementById("gamemode");
+const region = document.getElementById("region");
 const rankings = document.querySelectorAll(".ranking");
 
-search.addEventListener("input", () => {
+function filterPlayers() {
 
-    const value = search.value.toLowerCase();
+    const searchValue = search.value.toLowerCase();
+    const modeValue = gamemode.value;
+    const regionValue = region.value;
 
     rankings.forEach(card => {
 
@@ -436,12 +446,32 @@ search.addEventListener("input", () => {
             .textContent
             .toLowerCase();
 
+        const info =
+            card.querySelector(".player-info")
+            .textContent
+            .toLowerCase();
+
+        const nameMatch = name.includes(searchValue);
+
+        const modeMatch =
+            modeValue === "all" ||
+            info.includes(modeValue);
+
+        const regionMatch =
+            regionValue === "all" ||
+            info.includes(regionValue.toLowerCase());
+
         card.style.display =
-            name.includes(value) ? "flex" : "none";
-
+            nameMatch && modeMatch && regionMatch
+            ? "flex"
+            : "none";
     });
+}
 
-});
+search.addEventListener("input", filterPlayers);
+gamemode.addEventListener("change", filterPlayers);
+region.addEventListener("change", filterPlayers);
+
 </script>
 
 </body>
