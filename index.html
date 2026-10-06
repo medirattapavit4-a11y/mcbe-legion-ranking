@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MCBE LEGION | Rankings</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0b0b0f;
+      color: white;
+    }
+
+    header {
+      background: #111118;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #292932;
+    }
+
+    header h1 {
+      font-size: 28px;
+      color: #ffffff;
+    }
+
+    header p {
+      color: #999;
+      margin-top: 6px;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .title {
+      margin-bottom: 18px;
+    }
+
+    .title h2 {
+      font-size: 24px;
+    }
+
+    .title p {
+      color: #888;
+      margin-top: 5px;
+    }
+
+    .search {
+      width: 100%;
+      padding: 14px;
+      background: #15151d;
+      border: 1px solid #292932;
+      border-radius: 10px;
+      color: white;
+      outline: none;
+      margin-bottom: 18px;
+      font-size: 15px;
+    }
+
+    .filters {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    select {
+      flex: 1;
+      padding: 12px;
+      background: #15151d;
+      border: 1px solid #292932;
+      border-radius: 8px;
+      color: white;
+    }
+
+    .player {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #15151d;
+      border: 1px solid #292932;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 10px;
+    }
+
+    .position {
+      width: 35px;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .player-info {
+      flex: 1;
+    }
+
+    .player-name {
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+    .region {
+      color: #888;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .tier {
+      padding: 8px 12px;
+      border-radius: 7px;
+      background: #24242e;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    .points {
+      color: #aaa;
+      font-size: 12px;
+      margin-top: 3px;
+      text-align: right;
+    }
+
+    footer {
+      text-align: center;
+      color: #666;
+      padding: 30px 10px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 500px) {
+      .player {
+        gap: 8px;
+        padding: 12px;
+      }
+
+      .tier {
+        padding: 6px 8px;
+      }
+
+      .filters {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>MCBE LEGION</h1>
+    <p>Competitive Minecraft Bedrock Rankings</p>
+  </header>
+
+  <div class="container">
+
+    <div class="title">
+      <h2>🏆 Player Rankings</h2>
+      <p>MCBE LEGION Competitive Ranking System</p>
+    </div>
+
+    <input
+      class="search"
+      type="text"
+      id="search"
+      placeholder="Search player..."
+      onkeyup="searchPlayers()"
+    >
+
+    <div class="filters">
+      <select>
+        <option>All Gamemodes</option>
+        <option>BedFight</option>
+        <option>MidFight</option>
+        <option>SkyWars</option>
+        <option>BuildUHC</option>
+      </select>
+
+      <select>
+        <option>All Regions</option>
+        <option>AS</option>
+        <option>EU</option>
+        <option>NA</option>
+      </select>
+    </div>
+
+    <div id="players">
+
+      <div class="player">
+        <div class="position">#1</div>
+        <div class="player-info">
+          <div class="player-name">Efficient</div>
+          <div class="region">AS • SkyWars</div>
+        </div>
+        <div>
+          <div class="tier">HT1</div>
+          <div class="points">1000 pts</div>
+        </div>
+      </div>
+
+      <div class="player">
+        <div class="position">#2</div>
+        <div class="player-info">
+          <div class="player-name">Nanchi</div>
+          <div class="region">AS • SkyWars</div>
+        </div>
+        <div>
+          <div class="tier">LT1</div>
+          <div class="points">950 pts</div>
+        </div>
+      </div>
+
+      <div class="player">
+        <div class="position">#3</div>
+        <div class="player-info">
+          <div class="player-name">NOT KILLER</div>
+          <div class="region">AS • MidFight</div>
+        </div>
+        <div>
+          <div class="tier">HT2</div>
+          <div class="points">900 pts</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 MCBE LEGION • All Rights Reserved
+  </footer>
+
+  <script>
+    function searchPlayers() {
+      let input = document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+      let players = document.querySelectorAll(".player");
+
+      players.forEach(function(player) {
+        let name = player
+          .querySelector(".player-name")
+          .textContent
+          .toLowerCase();
+
+        player.style.display =
+          name.includes(input) ? "flex" : "none";
+      });
+    }
+  </script>
+
+</body>
+</html>
