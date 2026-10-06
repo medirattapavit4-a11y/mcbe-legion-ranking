@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>MCBE TIERS</title>
 
 <style>
@@ -14,49 +13,24 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #05070c;
+    font-family: Arial, sans-serif;
+    background: #050708;
     color: white;
     min-height: 100vh;
-    overflow-x: hidden;
 }
 
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    background:
-        radial-gradient(circle at 15% 15%, rgba(0,255,170,.13), transparent 28%),
-        radial-gradient(circle at 85% 65%, rgba(0,200,255,.10), transparent 28%),
-        linear-gradient(135deg, #020509, #07100f, #03060b);
-}
-
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    opacity: .22;
-    background-image:
-        linear-gradient(rgba(0,255,170,.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,255,170,.07) 1px, transparent 1px);
-    background-size: 45px 45px;
-}
-
-.header {
-    height: 75px;
+header {
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 25px;
-    border-bottom: 1px solid rgba(255,255,255,.08);
-    background: rgba(3,7,12,.88);
-    backdrop-filter: blur(12px);
+    padding: 0 6%;
+    background: #090d10;
+    border-bottom: 1px solid #1b2429;
 }
 
 .logo {
-    font-size: 23px;
+    font-size: 22px;
     font-weight: 900;
     letter-spacing: 2px;
 }
@@ -65,233 +39,282 @@ body::after {
     color: #00ff9d;
 }
 
-.menu {
-    font-size: 26px;
-    color: #8791a3;
+nav a {
+    color: #89939e;
+    text-decoration: none;
+    margin-left: 22px;
+    font-size: 14px;
 }
 
 .container {
-    width: min(1000px, 94%);
+    width: 94%;
+    max-width: 1050px;
     margin: auto;
-    padding: 35px 0 60px;
+    padding: 45px 0;
 }
 
 .hero {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .hero h1 {
-    font-size: clamp(38px, 8vw, 70px);
-    font-weight: 900;
-    letter-spacing: 3px;
-    color: #00ffb3;
-    text-shadow: 0 0 28px rgba(0,255,180,.42);
+    font-size: 60px;
+    color: #00ff9d;
+    letter-spacing: 4px;
 }
 
 .hero p {
+    color: #77818d;
     margin-top: 10px;
-    color: #8d9aaa;
-    font-size: 16px;
 }
 
 .stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin-bottom: 25px;
+    gap: 12px;
+    margin-bottom: 20px;
 }
 
 .stat {
-    padding: 23px 15px;
+    background: #0d1317;
+    border: 1px solid #1c272d;
+    border-radius: 16px;
+    padding: 20px 10px;
     text-align: center;
-    border: 1px solid rgba(0,255,180,.12);
-    border-radius: 20px;
-    background: rgba(17,20,32,.82);
-    box-shadow: 0 10px 35px rgba(0,0,0,.25);
 }
 
 .stat-number {
-    font-size: 28px;
     color: #00ff9d;
-    font-weight: 900;
+    font-size: 25px;
+    font-weight: bold;
 }
 
-.stat-name {
+.stat-label {
+    color: #68737f;
+    font-size: 10px;
     margin-top: 7px;
-    color: #687286;
-    font-size: 11px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
 .tabs {
     display: flex;
-    gap: 8px;
-    padding: 8px;
-    background: rgba(17,20,32,.9);
-    border: 1px solid rgba(255,255,255,.08);
-    border-radius: 20px;
-    margin-bottom: 18px;
+    gap: 6px;
+    background: #0b1014;
+    padding: 6px;
+    border-radius: 15px;
+    margin-bottom: 15px;
 }
 
 .tab {
     flex: 1;
     border: none;
-    padding: 14px 8px;
-    border-radius: 14px;
+    padding: 13px 5px;
+    border-radius: 10px;
     background: transparent;
-    color: #697287;
-    font-size: 14px;
+    color: #77818d;
+    cursor: pointer;
 }
 
 .tab.active {
-    background: rgba(0,255,170,.12);
+    background: #10251e;
     color: #00ff9d;
 }
 
-.search {
+.search,
+select {
     width: 100%;
-    padding: 18px;
-    border-radius: 17px;
-    border: 1px solid rgba(255,255,255,.08);
-    outline: none;
-    background: rgba(14,17,27,.92);
-    color: white;
-    font-size: 16px;
-    margin-bottom: 12px;
-}
-
-.search:focus {
-    border-color: rgba(0,255,170,.5);
-}
-
-.filter-row {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 25px;
-}
-
-.filter {
-    flex: 1;
     padding: 16px;
-    border-radius: 16px;
-    border: 1px solid rgba(255,255,255,.08);
-    background: rgba(14,17,27,.95);
-    color: #cbd2df;
-    font-size: 15px;
+    margin-bottom: 15px;
+    border-radius: 14px;
+    border: 1px solid #1c272d;
+    background: #0b1014;
+    color: white;
     outline: none;
 }
 
-.filter:focus {
-    border-color: rgba(0,255,170,.45);
+select option {
+    background: #0b1014;
 }
 
-.ranking {
+.section {
     display: flex;
-    align-items: center;
-    gap: 17px;
-    padding: 19px;
-    margin-bottom: 11px;
-    border-radius: 20px;
-    background: rgba(18,20,31,.92);
-    border: 1px solid rgba(255,255,255,.07);
-    transition: .2s;
-}
-
-.ranking:hover {
-    transform: translateY(-2px);
-    border-color: rgba(0,255,170,.25);
-}
-
-.position {
-    width: 42px;
-    font-size: 19px;
-    font-weight: 900;
-    color: #7f899b;
-    text-align: center;
-}
-
-.player {
-    flex: 1;
-}
-
-.player-name {
-    font-size: 19px;
-    font-weight: 800;
-}
-
-.player-info {
-    margin-top: 5px;
-    color: #687286;
-    font-size: 13px;
-}
-
-.tier {
-    padding: 9px 13px;
-    border-radius: 10px;
-    background: rgba(0,255,170,.08);
-    color: #00ff9d;
-    border: 1px solid rgba(0,255,170,.12);
-    font-weight: 900;
-    font-size: 13px;
-}
-
-.points {
-    color: #8e98aa;
-    font-size: 12px;
-    margin-top: 5px;
-    text-align: right;
+    justify-content: space-between;
+    margin: 10px 0;
 }
 
 .section-title {
-    color: #8b95a8;
-    font-size: 12px;
+    color: #89939e;
+    font-size: 11px;
     letter-spacing: 2px;
-    margin-bottom: 12px;
 }
 
-@media(max-width:650px) {
+.count {
+    color: #66717e;
+    font-size: 11px;
+}
+
+.players {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 17px;
+    background: #0d1317;
+    border: 1px solid #1c272d;
+    border-radius: 17px;
+    cursor: pointer;
+}
+
+.player:hover {
+    border-color: #00a86b;
+}
+
+.rank {
+    width: 40px;
+    text-align: center;
+    color: #77818d;
+    font-weight: bold;
+}
+
+.info {
+    flex: 1;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.meta {
+    color: #68737f;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.result {
+    text-align: right;
+}
+
+.tier {
+    color: #00ff9d;
+    background: #10251e;
+    padding: 7px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.points {
+    color: #74808d;
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+.empty {
+    display: none;
+    text-align: center;
+    padding: 35px;
+    color: #68737f;
+    background: #0d1317;
+    border-radius: 15px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #4f5964;
+    border-top: 1px solid #151d22;
+    font-size: 11px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.75);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-box {
+    width: 100%;
+    max-width: 450px;
+    background: #0d1317;
+    border: 1px solid #00a86b;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+.close {
+    float: right;
+    background: none;
+    border: none;
+    color: #89939e;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.modal-name {
+    font-size: 27px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.profile-row {
+    padding: 14px 0;
+    border-bottom: 1px solid #1c272d;
+}
+
+.profile-label {
+    color: #68737f;
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+
+.profile-value {
+    font-weight: bold;
+}
+
+@media (max-width: 700px) {
+
+    nav {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
 
     .stats {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .header {
-        padding: 0 18px;
-    }
-
-    .container {
-        padding-top: 25px;
-    }
-
-    .ranking {
+    .player {
+        padding: 14px 10px;
         gap: 9px;
-        padding: 15px;
     }
 
-    .player-name {
-        font-size: 16px;
-    }
-
-    .position {
+    .rank {
         width: 28px;
     }
 
+    .name {
+        font-size: 15px;
+    }
+
     .tier {
-        padding: 7px 9px;
-        font-size: 12px;
-    }
-
-    .filter-row {
-        flex-direction: column;
-    }
-
-    .tabs {
-        overflow-x: auto;
-    }
-
-    .tab {
-        min-width: 90px;
+        font-size: 10px;
     }
 }
 </style>
@@ -299,182 +322,447 @@ body::after {
 
 <body>
 
-<header class="header">
+<header>
     <div class="logo">
         <span>MCBE</span> TIERS
     </div>
 
-    <div class="menu">☰</div>
+    <nav>
+        <a href="#">Rankings</a>
+        <a href="#">Players</a>
+        <a href="#">Tests</a>
+    </nav>
 </header>
 
 <main class="container">
 
     <section class="hero">
         <h1>MCBE TIERS</h1>
-        <p>The ultimate Bedrock Edition PvP ranking system</p>
+        <p>Competitive Minecraft Bedrock Rankings</p>
     </section>
 
     <section class="stats">
 
         <div class="stat">
-            <div class="stat-number">3</div>
-            <div class="stat-name">PLAYERS</div>
+            <div class="stat-number" id="totalPlayers">0</div>
+            <div class="stat-label">PLAYERS</div>
         </div>
 
         <div class="stat">
-            <div class="stat-number">2850</div>
-            <div class="stat-name">TOTAL PTS</div>
+            <div class="stat-number" id="totalPoints">0</div>
+            <div class="stat-label">TOTAL POINTS</div>
         </div>
 
         <div class="stat">
-            <div class="stat-number">950</div>
-            <div class="stat-name">AVG PTS</div>
+            <div class="stat-number" id="averagePoints">0</div>
+            <div class="stat-label">AVG POINTS</div>
         </div>
 
         <div class="stat">
-            <div class="stat-number">1000</div>
-            <div class="stat-name">TOP PTS</div>
+            <div class="stat-number" id="topPoints">0</div>
+            <div class="stat-label">TOP POINTS</div>
         </div>
 
     </section>
 
-    <section class="tabs">
+    <div class="tabs">
 
-        <button class="tab active">🌐 Overall</button>
-        <button class="tab">📱 Mobile</button>
-        <button class="tab">🖥️ PC</button>
-        <button class="tab">🎮 Console</button>
+        <button class="tab active" onclick="setPlatform('ALL', this)">
+            Overall
+        </button>
 
-    </section>
+        <button class="tab" onclick="setPlatform('Mobile', this)">
+            Mobile
+        </button>
+
+        <button class="tab" onclick="setPlatform('PC', this)">
+            PC
+        </button>
+
+        <button class="tab" onclick="setPlatform('Console', this)">
+            Console
+        </button>
+
+    </div>
 
     <input
-        class="search"
-        id="search"
         type="text"
+        id="search"
+        class="search"
         placeholder="Search player IGN..."
+        oninput="renderPlayers()"
     >
 
-    <div class="filter-row">
+    <select id="gamemode" onchange="renderPlayers()">
 
-        <select class="filter" id="gamemode">
-            <option value="all">Select Gamemode</option>
-            <option value="bedfight">BedFight</option>
-            <option value="builduhc">BuildUHC</option>
-            <option value="midfight">MidFight</option>
-            <option value="skywars">SkyWars</option>
-            <option value="boxing">Boxing</option>
-            <option value="crystal">Crystal PvP</option>
-            <option value="sumo">Sumo</option>
-        </select>
+        <option value="ALL">Select Gamemode</option>
 
-        <select class="filter" id="region">
-            <option value="all">Select Region</option>
-            <option value="AS">Asia</option>
-            <option value="EU">Europe</option>
-            <option value="NA">North America</option>
-            <option value="SA">South America</option>
-            <option value="OC">Oceania</option>
-        </select>
+        <option value="CRYSTAL PVP">CRYSTAL PVP</option>
+
+        <option value="MACE">MACE</option>
+
+        <option value="MIDFIGHT/SWORD">MIDFIGHT/SWORD</option>
+
+        <option value="SKYWARS">SKYWARS</option>
+
+        <option value="BUILD UHC">BUILD UHC</option>
+
+        <option value="NETH-POT">NETH-POT</option>
+
+    </select>
+
+    <div class="section">
+
+        <div class="section-title">
+            PLAYER RANKINGS
+        </div>
+
+        <div class="count" id="count">
+            0 PLAYERS
+        </div>
 
     </div>
 
-    <div class="section-title">
-        PLAYER RANKINGS
+    <div class="players" id="players"></div>
+
+    <div class="empty" id="empty">
+        No players found.
     </div>
-
-    <section id="rankings">
-
-        <div class="ranking">
-            <div class="position">#1</div>
-
-            <div class="player">
-                <div class="player-name">Efficient</div>
-                <div class="player-info">AS • SkyWars</div>
-            </div>
-
-            <div>
-                <div class="tier">HT1</div>
-                <div class="points">1000 pts</div>
-            </div>
-        </div>
-
-        <div class="ranking">
-            <div class="position">#2</div>
-
-            <div class="player">
-                <div class="player-name">Nanchi</div>
-                <div class="player-info">AS • SkyWars</div>
-            </div>
-
-            <div>
-                <div class="tier">LT1</div>
-                <div class="points">950 pts</div>
-            </div>
-        </div>
-
-        <div class="ranking">
-            <div class="position">#3</div>
-
-            <div class="player">
-                <div class="player-name">NOT KILLER</div>
-                <div class="player-info">AS • MidFight</div>
-            </div>
-
-            <div>
-                <div class="tier">HT2</div>
-                <div class="points">900 pts</div>
-            </div>
-        </div>
-
-    </section>
 
 </main>
 
+<footer>
+    MCBE TIERS • Competitive Bedrock Rankings
+</footer>
+
+
+<div class="modal" id="modal">
+
+    <div class="modal-box">
+
+        <button class="close" onclick="closeProfile()">×</button>
+
+        <div class="modal-name" id="modalName"></div>
+
+        <div class="profile-row">
+            <div class="profile-label">GAMEMODE</div>
+            <div class="profile-value" id="modalGamemode"></div>
+        </div>
+
+        <div class="profile-row">
+            <div class="profile-label">TIER</div>
+            <div class="profile-value" id="modalTier"></div>
+        </div>
+
+        <div class="profile-row">
+            <div class="profile-label">POINTS</div>
+            <div class="profile-value" id="modalPoints"></div>
+        </div>
+
+        <div class="profile-row">
+            <div class="profile-label">PLATFORM</div>
+            <div class="profile-value" id="modalPlatform"></div>
+        </div>
+
+    </div>
+
+</div>
+
+
 <script>
 
-const search = document.getElementById("search");
-const gamemode = document.getElementById("gamemode");
-const region = document.getElementById("region");
-const rankings = document.querySelectorAll(".ranking");
+const tiers = {
 
-function filterPlayers() {
+    HT1: { name: "High S Tier", points: 1000 },
+    MT1: { name: "Mid S Tier", points: 950 },
+    LT1: { name: "Low S Tier", points: 900 },
 
-    const searchValue = search.value.toLowerCase();
-    const modeValue = gamemode.value;
-    const regionValue = region.value;
+    HT2: { name: "High A Tier", points: 850 },
+    MT2: { name: "Mid A Tier", points: 800 },
+    LT2: { name: "Low A Tier", points: 750 },
 
-    rankings.forEach(card => {
+    HT3: { name: "High B Tier", points: 700 },
+    MT3: { name: "Mid B Tier", points: 650 },
+    LT3: { name: "Low B Tier", points: 600 },
 
-        const name =
-            card.querySelector(".player-name")
-            .textContent
-            .toLowerCase();
+    HT4: { name: "High C Tier", points: 550 },
+    MT4: { name: "Mid C Tier", points: 500 },
+    LT4: { name: "Low C Tier", points: 450 },
 
-        const info =
-            card.querySelector(".player-info")
-            .textContent
-            .toLowerCase();
+    HT5: { name: "High D Tier", points: 400 },
+    MT5: { name: "Mid D Tier", points: 350 },
+    LT5: { name: "Low D Tier", points: 300 }
 
-        const nameMatch = name.includes(searchValue);
+};
+
+
+/* DEMO PLAYERS */
+
+const players = [
+
+    {
+        name: "Efficient",
+        gamemode: "SKYWARS",
+        tier: "HT1",
+        platform: "Mobile"
+    },
+
+    {
+        name: "Nanchi",
+        gamemode: "SKYWARS",
+        tier: "LT1",
+        platform: "Mobile"
+    },
+
+    {
+        name: "NOT KILLER",
+        gamemode: "MIDFIGHT/SWORD",
+        tier: "MT4",
+        platform: "Mobile"
+    },
+
+    {
+        name: "Player4",
+        gamemode: "CRYSTAL PVP",
+        tier: "HT2",
+        platform: "PC"
+    },
+
+    {
+        name: "Player5",
+        gamemode: "BUILD UHC",
+        tier: "HT3",
+        platform: "Mobile"
+    },
+
+    {
+        name: "Player6",
+        gamemode: "NETH-POT",
+        tier: "LT3",
+        platform: "Console"
+    }
+
+];
+
+
+let currentPlatform = "ALL";
+
+
+function renderPlayers() {
+
+    const searchText =
+        document.getElementById("search")
+        .value
+        .toLowerCase();
+
+    const selectedMode =
+        document.getElementById("gamemode").value;
+
+    const container =
+        document.getElementById("players");
+
+    container.innerHTML = "";
+
+    let filtered = players.filter(function(player) {
+
+        const nameMatch =
+            player.name
+            .toLowerCase()
+            .includes(searchText);
 
         const modeMatch =
-            modeValue === "all" ||
-            info.includes(modeValue);
+            selectedMode === "ALL" ||
+            player.gamemode === selectedMode;
 
-        const regionMatch =
-            regionValue === "all" ||
-            info.includes(regionValue.toLowerCase());
+        const platformMatch =
+            currentPlatform === "ALL" ||
+            player.platform === currentPlatform;
 
-        card.style.display =
-            nameMatch && modeMatch && regionMatch
-            ? "flex"
-            : "none";
+        return nameMatch && modeMatch && platformMatch;
+
     });
+
+
+    filtered.sort(function(a, b) {
+
+        return tiers[b.tier].points -
+               tiers[a.tier].points;
+
+    });
+
+
+    filtered.forEach(function(player, index) {
+
+        const card =
+            document.createElement("div");
+
+        card.className = "player";
+
+        card.innerHTML =
+
+            '<div class="rank">#' +
+            (index + 1) +
+            '</div>' +
+
+            '<div class="info">' +
+
+                '<div class="name">' +
+                player.name +
+                '</div>' +
+
+                '<div class="meta">' +
+                player.gamemode +
+                ' • ' +
+                player.platform +
+                '</div>' +
+
+            '</div>' +
+
+            '<div class="result">' +
+
+                '<div class="tier">' +
+                player.tier +
+                '</div>' +
+
+                '<div class="points">' +
+                tiers[player.tier].points +
+                ' pts' +
+                '</div>' +
+
+            '</div>';
+
+
+        card.onclick = function() {
+            openProfile(player);
+        };
+
+
+        container.appendChild(card);
+
+    });
+
+
+    document.getElementById("count")
+        .textContent =
+        filtered.length +
+        " PLAYER" +
+        (filtered.length === 1 ? "" : "S");
+
+
+    document.getElementById("empty")
+        .style.display =
+        filtered.length === 0
+        ? "block"
+        : "none";
+
 }
 
-search.addEventListener("input", filterPlayers);
-gamemode.addEventListener("change", filterPlayers);
-region.addEventListener("change", filterPlayers);
+
+function setPlatform(platform, button) {
+
+    currentPlatform = platform;
+
+    document
+        .querySelectorAll(".tab")
+        .forEach(function(tab) {
+            tab.classList.remove("active");
+        });
+
+    button.classList.add("active");
+
+    renderPlayers();
+
+}
+
+
+function openProfile(player) {
+
+    document.getElementById("modalName")
+        .textContent = player.name;
+
+    document.getElementById("modalGamemode")
+        .textContent = player.gamemode;
+
+    document.getElementById("modalTier")
+        .textContent =
+        tiers[player.tier].name +
+        " [" +
+        player.tier +
+        "]";
+
+    document.getElementById("modalPoints")
+        .textContent =
+        tiers[player.tier].points +
+        " pts";
+
+    document.getElementById("modalPlatform")
+        .textContent = player.platform;
+
+    document.getElementById("modal")
+        .classList.add("show");
+
+}
+
+
+function closeProfile() {
+
+    document.getElementById("modal")
+        .classList.remove("show");
+
+}
+
+
+function updateStats() {
+
+    const total = players.length;
+
+    let totalPoints = 0;
+
+    players.forEach(function(player) {
+
+        totalPoints +=
+            tiers[player.tier].points;
+
+    });
+
+
+    const average =
+        total === 0
+        ? 0
+        : Math.round(totalPoints / total);
+
+
+    let top = 0;
+
+    players.forEach(function(player) {
+
+        if (tiers[player.tier].points > top) {
+
+            top =
+                tiers[player.tier].points;
+
+        }
+
+    });
+
+
+    document.getElementById("totalPlayers")
+        .textContent = total;
+
+    document.getElementById("totalPoints")
+        .textContent = totalPoints;
+
+    document.getElementById("averagePoints")
+        .textContent = average;
+
+    document.getElementById("topPoints")
+        .textContent = top;
+
+}
+
+
+updateStats();
+renderPlayers();
 
 </script>
 
