@@ -509,60 +509,22 @@ const tiers = {
 
 /* DEMO PLAYERS */
 
-const players = [
+let players = [];
 
-    {
-        name: "Efficient",
-        gamemode: "SKYWARS",
-        tier: "HT1",
-        platform: "Mobile"
-    },
+async function loadPlayers() {
+    const { data, error } = await supabase
+        .from("players")
+        .select("*")
+        .order("points", { ascending: false });
 
-    {
-        name: "Nanchi",
-        gamemode: "SKYWARS",
-        tier: "LT1",
-        platform: "Mobile"
-    },
-
-    {
-        name: "NOT KILLER",
-        gamemode: "MIDFIGHT/SWORD",
-        tier: "MT4",
-        platform: "Mobile"
-    },
-
-    {
-        name: "Player4",
-        gamemode: "CRYSTAL PVP",
-        tier: "HT2",
-        platform: "PC"
-    },
-
-    {
-        name: "Player5",
-        gamemode: "BUILD UHC",
-        tier: "HT3",
-        platform: "Mobile"
-    },
-
-    {
-        name: "Player6",
-        gamemode: "NETH-POT",
-        tier: "LT3",
-        platform: "Console"
+    if (error) {
+        console.error("Supabase error:", error);
+        return;
     }
 
-];
-
-
-let currentPlatform = "ALL";
-
-
-function renderPlayers() {
-
-    const searchText =
-        document.getElementById("search")
+    players = data || [];
+    renderPlayers();
+}
         .value
         .toLowerCase();
 
@@ -600,8 +562,7 @@ function renderPlayers() {
                tiers[a.tier].points;
 
     });
-
-
+    
     filtered.forEach(function(player, index) {
 
         const card =
